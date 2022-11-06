@@ -11,8 +11,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-20.04
-    if: ${{ github.event_name == 'push' }}
-    if: ${{ !contains(toJson(github.event.commits.*.message),'#SKIP') }}
+    if: ${{ github.event_name == 'push' && !contains(toJson(github.event.commits.*.message),'#SKIP') }}
     steps:
       - uses: actions/checkout@v2
       - uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
