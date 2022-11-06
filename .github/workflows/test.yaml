@@ -20,4 +20,4 @@ jobs:
         run: echo "$COMMITS"
       - name: check skip
         if: ${{ !contains(toJson(github.event.commits.*.message),'#SKIP') }}
-        run: echo "no skips here"
+        run: echo "no skips here!"
